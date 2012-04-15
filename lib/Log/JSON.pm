@@ -1,3 +1,4 @@
+# ABSTRACT: Log data to a file as JSON
 package Log::JSON;
 use Moose;
 use MooseX::Types::Path::Class;
@@ -7,34 +8,34 @@ use English;
 use JSON;
 use Path::Class::File;
 
-our $VERSION = '0.03';
-
-=head1 NAME
-
-Log::JSON
-
 =head1 SYNOPSIS
 
     use Log::JSON;
-    my $logger = Log::JSON->new(file => '/path/errorlog.json');
+    my $logger = Log::JSON->new(
+        file            => '/path/errorlog.json', # required
+        date            => 1, # optional
+        remove_newlines => 1, # optional
+    );
     $logger->log(a => 1, b => 2);
     # '/path/errorlog.json' now contains: 
     # {"__date":"2010-03-28T23:15:52Z","a":1,"b":1}
 
 =head1 DESCRIPTION
 
-This module logs a hash to a file as JSON.  
+This module logs a hash to a file as JSON.  The keys are printed in sorted order.  
 
-If you aren't familiar with the format of the log file, its sometimes difficult
-to decipher what all the data means -- especially if each row contains many
-columns. Using JSON means the information is labeled and the log file is more
-human readable.
+Using JSON in your log file means each piece of information is labeled and the
+file is more human readable.  Sometimes log files end up with lots of lots of
+raw numbers and strings which were obvious when the code was written but
+forgotten later on.  And the more columns there are in a row, the more
+difficult it is.  
 
 Having a log file with JSON formatted text also means its easy to parse and use
-the data structure in the log file -- very similar to using L<Storable>.  In
-fact Storable is a good alternative for creating log files.  The advantage of
-this module is that Storable adds some version numbers and other data which
-make it slightly less friendly to humans reading the raw file.
+the data structure in the log file -- similar to using L<Storable>.  In fact
+Storable is a good alternative for creating log files.  The advantage of this
+module is that Storable adds some version numbers and other data which make it
+less friendly to humans reading the raw file.
+
 
 =head1 METHODS
 
@@ -79,10 +80,6 @@ sub log {
 =head1 BUGS
 
 This should probably become a Log::Dispatch plugin.
-
-=head1 AUTHOR
-
-Eric Johnson
 
 =cut
 
