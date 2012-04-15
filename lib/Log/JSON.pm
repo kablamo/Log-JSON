@@ -16,18 +16,10 @@ Log::JSON
 =head1 SYNOPSIS
 
     use Log::JSON;
-
     my $logger = Log::JSON->new(file => '/path/errorlog.json');
     $logger->log(a => 1, b => 2);
-    # '/log/file.json' now contains: 
+    # '/path/errorlog.json' now contains: 
     # {"__date":"2010-03-28T23:15:52Z","a":1,"b":1}
-
-    # OR
-
-    my $logger = Log::JSON->new(domain => 'hey');
-    $logger->log(a => 1, b => 2);
-    # log data to '/data/<effective_username>_hey/yymmdd.json'
-
 
 =head1 DESCRIPTION
 
@@ -48,28 +40,15 @@ make it slightly less friendly to humans reading the raw file.
 
 =cut
 
-has 'domain'          => ( is => 'ro', isa => 'Str' );
 has 'remove_newlines' => ( is => 'ro', isa => 'Bool', default => 1 );
 has 'date'            => ( is => 'ro', isa => 'Bool', default => 1 );
 
 has 'file' => (
     is      => 'ro',
     isa     => 'Path::Class::File',
-    builder => '_build_file',
-    lazy    => 1,
+    required => 1,
     coerce  => 1,
 );
-
-sub _build_file {
-    my $self = shift;
-
-    confess "Either the domain param or the file param must be specified"
-        unless $self->domain;
-
-    my $username = getpwuid($EFFECTIVE_USER_ID) || $EFFECTIVE_USER_ID;
-    my $filename = DateTime->now->ymd . '.json';
-    return '/data/' . $username . '_' . $self->domain . '/' . $filename;
-}
 
 sub BUILD {
     my $self = shift;
