@@ -24,17 +24,18 @@ use Path::Class::File;
 
 This module logs a hash to a file as JSON.  The keys are printed in sorted order.  
 
-Using JSON in your log file means each piece of information is labeled and the
-file is more human readable.  Sometimes log files end up with lots of lots of
-raw numbers and strings which were obvious when the code was written but
-forgotten later on.  And the more columns there are in a row, the more
-difficult it is.  
+Log files often end up with lots of raw numbers and strings whose meaning was
+obvious when the code was written but forgotten later on.  And the more columns
+there are in a row, the more of a problem this becomes.  Using JSON in your log
+file provides a label for each piece of information which may make it more
+human readable.  
 
-Having a log file with JSON formatted text also means its easy to parse and use
-the data structure in the log file -- similar to using L<Storable>.  In fact
-Storable is a good alternative for creating log files.  The advantage of this
-module is that Storable adds some version numbers and other data which make it
-less friendly to humans reading the raw file.
+A log file with JSON formatted text is also convenient to parse and it becomes
+easy to revive the data structures.  Using Log::JSON this way makes it similar
+to L<Storable>.  In fact, Storable is a good alternative for creating log
+files.  Probably the only advantage this module has over Storable is that
+Storable adds version numbers and other data to the serialized string which
+make it less friendly to humans reading the raw file.
 
 
 =head1 METHODS
