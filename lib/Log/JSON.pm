@@ -4,6 +4,7 @@ use Moose;
 use MooseX::Types::Path::Class;
 
 use Carp;
+use DateTime;
 use English;
 use JSON;
 use Path::Class::File;
@@ -32,6 +33,22 @@ labeled.
 Using JSON also means log files are easy to parse and the data structures can
 be easily revived.
 
+=head1 ATTRIBUTES
+
+=head2 file
+
+The name of the file to log data to
+
+=head2 date
+
+Adds an __date field to your json.  The '__' part ensures the date is the first
+information logged to each line when the keys are sorted.
+
+=head2 remove_newlines
+
+This boolean is set to true by default.  It means your jason data structures
+will be logged entirely on one line.
+
 =cut
 
 
@@ -55,10 +72,9 @@ sub BUILD {
 
 =cut
 
-=head2 new(%hash)
+=head2 new(%attributes)
 
 Returns a Log::JSON object.
-
 
 =cut
 
@@ -94,6 +110,7 @@ This should probably should have been a Log::Dispatch plugin.
 
 =head1 SEE ALSO
 
+L<Log::Message::Structured>, L<Log::Structured>, L<Log::Sprintf>
 
 =cut
 
