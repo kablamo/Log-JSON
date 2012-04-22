@@ -24,23 +24,16 @@ use Path::Class::File;
 
 This module logs a hash to a file as JSON.  The keys are printed in sorted order.  
 
-Log files often end up with lots of raw numbers and strings whose meaning was
-obvious when the code was written but forgotten later on.  And the more columns
-there are in a row, the more of a problem this becomes.  Using JSON in your log
-file provides a label for each piece of information which may make it more
-human readable.  
+Often log files have lots of raw numbers and strings whose meaning is not
+immediately obvious.  With JSON formatted text your log files, a human can open
+the file and quickly decipher the content because each piece of information is
+labeled.
 
-A log file with JSON formatted text is also convenient to parse and it becomes
-easy to revive the data structures.  Using Log::JSON this way makes it similar
-to L<Storable>.  In fact, Storable is a good alternative for creating log
-files.  Probably the only advantage this module has over Storable is that
-Storable adds version numbers and other data to the serialized string which
-make it less friendly to humans reading the raw file.
-
-
-=head1 METHODS
+Using JSON also means log files are easy to parse and the data structures can
+be easily revived.
 
 =cut
+
 
 has 'remove_newlines' => ( is => 'ro', isa => 'Bool', default => 1 );
 has 'date'            => ( is => 'ro', isa => 'Bool', default => 1 );
@@ -57,6 +50,23 @@ sub BUILD {
     $self->file->dir->mkpath;
     $self->file->touch;
 }
+
+=head1 METHODS
+
+=cut
+
+=head2 new(%hash)
+
+Returns a Log::JSON object.
+
+
+=cut
+
+=head2 log(%hash)
+
+Appends %hash to a file as JSON.  The keys are sorted when the hash is converted to JSON.
+
+=cut
 
 sub log {
     my $self = shift;
@@ -80,7 +90,10 @@ sub log {
 
 =head1 BUGS
 
-This should probably become a Log::Dispatch plugin.
+This should probably should have been a Log::Dispatch plugin.
+
+=head1 SEE ALSO
+
 
 =cut
 
