@@ -25,10 +25,10 @@ use Path::Class::File;
 
 This module logs a hash to a file as JSON.  The keys are printed in sorted order.  
 
-Often log files have lots of raw numbers and strings whose meaning is not
-immediately obvious.  With JSON formatted text your log files, a human can open
-the file and quickly decipher the content because each piece of information is
-labeled.
+Often log files have several raw numbers and strings whose meaning is not
+immediately clear.  With JSON formatted text in your log files, a human can
+open the file and quickly decipher the content because each piece of
+information is labeled.
 
 Using JSON also means log files are easy to parse and the data structures can
 be easily revived.
