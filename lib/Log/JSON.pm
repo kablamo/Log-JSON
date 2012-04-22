@@ -108,6 +108,11 @@ sub log {
 
 This should probably should have been a Log::Dispatch plugin.
 
+=head1 THANKS
+
+Thanks to Foxtons Ltd for providing the opportunity to write and release the
+original version of this module.
+
 =head1 SEE ALSO
 
 L<Log::Message::Structured>, L<Log::Structured>, L<Log::Sprintf>
