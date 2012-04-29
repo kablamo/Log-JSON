@@ -108,6 +108,8 @@ L<Log::Message::Structured>, L<Log::Structured>, L<Log::Sprintf>
 Thanks to Foxtons Ltd for providing the opportunity to write and release the
 original version of this module.
 
+=for Pod::Coverage BUILD
+
 =cut
 
 1;
