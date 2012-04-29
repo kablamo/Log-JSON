@@ -4,7 +4,7 @@
       "Eric Johnson <cpan at iijo dot org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300000, CPAN::Meta::Converter version 2.112150",
+   "generated_by" : "Dist::Zilla version 4.300015, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -32,26 +32,26 @@
       },
       "runtime" : {
          "requires" : {
-            "Carp" : 0,
-            "DateTime" : 0,
-            "English" : 0,
-            "JSON" : 0,
-            "Moose" : 0,
-            "MooseX::Types::Path::Class" : 0,
-            "Path::Class::File" : 0,
+            "Carp" : "0",
+            "DateTime" : "0",
+            "English" : "0",
+            "JSON" : "0",
+            "Moose" : "0",
+            "MooseX::Types::Path::Class" : "0",
+            "Path::Class::File" : "0",
             "perl" : "5.006"
          }
       },
       "test" : {
          "requires" : {
-            "Directory::Scratch" : 0,
-            "File::Find" : 0,
-            "File::Slurp" : 0,
-            "File::Temp" : 0,
-            "Test::More" : 0,
-            "Test::Most" : 0,
-            "strict" : 0,
-            "warnings" : 0
+            "Directory::Scratch" : "0",
+            "File::Find" : "0",
+            "File::Slurp" : "0",
+            "File::Temp" : "0",
+            "Test::More" : "0",
+            "Test::Most" : "0",
+            "strict" : "0",
+            "warnings" : "0"
          }
       }
    },
