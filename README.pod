@@ -41,7 +41,7 @@ The name of the file to log data to
 
 =head2 remove_newlines
 
-This boolean is set to true by default.  It means your jason data structures
+This boolean is set to true by default.  It means your json data structures
 will be logged entirely on one line.
 
 =head1 METHODS
@@ -62,6 +62,8 @@ L<Log::Message::Structured>, L<Log::Structured>, L<Log::Sprintf>
 
 Thanks to Foxtons Ltd for providing the opportunity to write and release the
 original version of this module.
+
+=for Pod::Coverage BUILD
 
 =head1 AUTHOR
 
