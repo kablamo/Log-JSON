@@ -32,7 +32,7 @@ has 'file' => (
 
 =attr remove_newlines
 
-This boolean is set to true by default.  It means your jason data structures
+This boolean is set to true by default.  It means your json data structures
 will be logged entirely on one line.
 
 =cut
